@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelly RGBW Control</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Shelly RGBW Control</h1>
+            <p>Control your Shelly bulb with webcam color detection</p>
+        </header>
+
+        <main>
+            <div class="camera-section">
+                <div class="video-container">
+                    <video id="webcam" autoplay playsinline></video>
+                    <div class="loading-indicator">
+                        <span>Connecting to camera...</span>
+                    </div>
+                </div>
+
+                <div class="camera-controls">
+                    <label for="camera-select">Camera:</label>
+                    <select id="camera-select">
+                        <option value="">Loading cameras...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="color-section">
+                <div class="color-preview">
+                    <div id="color-box"></div>
+                    <div class="color-values">
+                        <div>R: <span id="red-value">0</span></div>
+                        <div>G: <span id="green-value">0</span></div>
+                        <div>B: <span id="blue-value">0</span></div>
+                    </div>
+                </div>
+
+                <div class="control-panel">
+                    <!-- Device Status Section -->
+                    <div class="device-status">
+                        <h3>Shelly Device</h3>
+                        <div class="device-info">
+                            <div class="info-row">
+                                <span class="info-label">Discovery:</span>
+                                <span id="discovery-status">Unknown</span>
+                                <button id="discovery-toggle" class="small-button">Start</button>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">IP:</span>
+                                <span id="bulb-ip">Not connected</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Name:</span>
+                                <span id="bulb-name">Unknown</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mode-toggle">
+                        <label class="switch">
+                            <input type="checkbox" id="auto-mode">
+                            <span class="slider"></span>
+                        </label>
+                        <span id="mode-label">Manual Mode</span>
+                    </div>
+
+                    <button id="send-button" class="primary-button">Send to Bulb</button>
+
+                    <div id="status-message" class="status"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>mDNS Discovery Demo - Spring Boot + JmDNS</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
